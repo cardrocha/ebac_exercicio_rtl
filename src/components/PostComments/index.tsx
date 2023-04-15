@@ -27,8 +27,8 @@ const Post = () => {
                 ))}
             </PostComments>
             <PostCommentsForm onSubmit={handleAddComment}>
-                <PostFormTextarea value={tempComment} onChange={e => setTempComment(e.target.value)} required />
-                <PostButton type="submit">
+                <PostFormTextarea data-testid="campo-comentario" value={tempComment} onChange={e => setTempComment(e.target.value)} required />
+                <PostButton data-testid="btn-postar" type="submit">
                     Comentar
                 </PostButton>
             </PostCommentsForm>
