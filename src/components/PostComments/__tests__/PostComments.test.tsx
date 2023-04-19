@@ -2,13 +2,15 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import Post from '../../PostComments'
 
 describe('Teste para o componente post', () => {
-  test('Deve renderizar corretamente', () => {
+  beforeEach(() => {
     render(<Post />)
+  })
+  
+  test('Deve renderizar corretamente', () => {
     expect(screen.getByText('Comentar'))
   })
 
   test('Deve renderizar o comentário', () => {
-    render(<Post />)
     fireEvent.change(screen.getByTestId('campo-comentario'), {
       target: {
         value: 'Maneiro! Eu sou a escuridão!'
@@ -19,7 +21,6 @@ describe('Teste para o componente post', () => {
   })
 
   test('Deve renderizar outro comentário', () => {
-    render(<Post />)
     fireEvent.change(screen.getByTestId('campo-comentario'), {
       target: {
         value: 'Maneiro! Eu sou a velocidade!'
