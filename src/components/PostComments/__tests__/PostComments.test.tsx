@@ -7,7 +7,7 @@ describe('Teste para o componente post', () => {
     expect(screen.getByText('Comentar'))
   })
 
-  test('Deve renderizar comentário', () => {
+  test('Deve renderizar o comentário', () => {
     render(<Post />)
     fireEvent.change(screen.getByTestId('campo-comentario'), {
       target: {
@@ -16,5 +16,16 @@ describe('Teste para o componente post', () => {
     })
     fireEvent.click(screen.getByTestId('btn-postar'))
     expect(screen.getByText('Maneiro! Eu sou a escuridão!')).toBeInTheDocument()
+  })
+
+  test('Deve renderizar outro comentário', () => {
+    render(<Post />)
+    fireEvent.change(screen.getByTestId('campo-comentario'), {
+      target: {
+        value: 'Maneiro! Eu sou a velocidade!'
+      }
+    })
+    fireEvent.click(screen.getByTestId('btn-postar'))
+    expect(screen.getByText('Maneiro! Eu sou a velocidade!')).toBeInTheDocument()
   })
 })
